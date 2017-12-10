@@ -21,6 +21,8 @@ var onePokemonRequestComplete = function(){
   if(this.status !== 200) return;
   var jsonString = this.responseText;
   pokemondetails = JSON.parse(jsonString);
+  displayPokemon(pokemondetails);
+
 }
 
 var loadAllPokemon = function(){
@@ -28,9 +30,8 @@ var loadAllPokemon = function(){
   makeRequest(url, requestComplete);
 }
 
-function loadAPokemonsDetail(pokemon){
-  var name = pokemon.name;
-  var url = `https://pokeapi.co/api/v2/pokemon/${name}/?limit=150`;
+function loadAPokemonsDetail(pokemonName){
+  var url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
   makeRequest(url, onePokemonRequestComplete);
 }
 
@@ -67,13 +68,10 @@ function appendChild(parent, child){
   parent.appendChild(child);
 }
 
-function displayPokemon(pokemon){
+function displayPokemon(pokemonDetails){
+  var pPokemonName = createNewParagraph(pokemonDetails.id);
   var mainDiv = document.getElementById('pokemon');
-  var div = createDiv();
-  var hPokemonName = createHeader("h4", pokemon.name);
-
-  appendChild(mainDiv, div);
-  appendChild(div, hPokemonName);
+  appendChild(mainDiv, pPokemonName);
 }
 
 function popualteSelect(pokemon){
@@ -99,8 +97,14 @@ var app = function(){
   pokemon = getAllPokemonFromStorage();
   forEachPokemon(pokemon.results, popualteSelect);
 
+  var mainSelect = document.getElementById('select-pokemon');
+  mainSelect.addEventListener('change', function(){
+    var name = this.value
+    loadAPokemonsDetail(name);
 
-  // loadAPokemonsDetail(pokemon.results[0])
+  })
+
+
 
 
 

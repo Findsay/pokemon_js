@@ -125,6 +125,32 @@ function showButton(button){
   button.style.display = 'inline';
 };
 
+function randomNumber(){
+  var rand = Math.floor((Math.random() * 150));
+  return rand;
+};
+
+function returnPokemonNamefromInt(index){
+  return pokemon[index].name;
+};
+
+function displayWildPokemon(details){
+  clearPokemonInfo();
+  var mainDiv = document.getElementById('pokemon');
+  var pPokemonAppear = createNewParagraph(`A wild ${pokemonDetails.name} appeared!`);
+  appendChild(mainDiv, pPokemonAppear);
+  var pPokemonImg = createImage(pokemonDetails.sprites.front_shiny);
+  appendChild(mainDiv, pPokemonImg);
+};
+
+// function addToEncountered(){
+//
+// };
+//
+// function addToCaught(){
+//
+// };
+
 
 var app = function(){
 
@@ -155,7 +181,30 @@ var app = function(){
     hideButton(btnViewCaught);
     hideButton(btnPlay);
     mainSelect.style.display = 'inline';
+  })
 
+  btnViewEncountered.addEventListener('click', function(){
+    hideButton(btnViewAll);
+    hideButton(btnViewEncountered);
+    hideButton(btnViewCaught);
+    hideButton(btnPlay);
+    mainSelect.style.display = 'inline';
+  })
+
+  btnViewCaught.addEventListener('click', function(){
+    hideButton(btnViewAll);
+    hideButton(btnViewEncountered);
+    hideButton(btnViewCaught);
+    hideButton(btnPlay);
+    mainSelect.style.display = 'inline';
+  })
+
+  btnPlay.addEventListener('click', function(){
+    hideButton(btnViewAll);
+    hideButton(btnViewEncountered);
+    hideButton(btnViewCaught);
+    hideButton(btnPlay);
+    mainSelect.style.display = 'inline';
   })
 
 

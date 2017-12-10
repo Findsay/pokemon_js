@@ -12,8 +12,7 @@ var requestComplete = function(){
   var jsonString = this.responseText;
   pokemon = JSON.parse(jsonString);
   saveAllPokemon();
-  forEachPokemon(pokemon.results, displayAllPokemon);
-
+  forEachPokemon(pokemon.results, popualteSelect);
 
 };
 
@@ -157,9 +156,7 @@ function displayWildPokemon(pokemonDetails){
   btnCatch.innerText = "Throw Pokeball"
   appendChild(mainDiv, btnCatch);
   btnCatch.addEventListener('click', function(pokeonDetails){
-    debugger;
     var chance = returnCatchChance();
-    debugger;
     if(checkIfCaught(chance)){
       addToCaught(pokemonDetails);
       clearPokemonInfo();
@@ -207,7 +204,6 @@ function addToCaught(pokemonDetails){
   }
 
   var name = pokemonDetails.name;
-  debugger;
   caughtPokemon.push(name);
 
   var jsonString = JSON.stringify(caughtPokemon);
@@ -219,18 +215,13 @@ function addToCaught(pokemonDetails){
 
 
 var app = function(){
-  // loadAllPokemon();
-  pokemon = getAllPokemonFromStorage();
-  forEachPokemon(pokemon.results, popualteSelect);
-
+  loadAllPokemon();
+  // pokemon = getAllPokemonFromStorage();
   var mainSelect = document.getElementById('select-pokemon');
   mainSelect.style.display = 'none';
   mainSelect.addEventListener('change', function(){
     var name = this.value
     loadAPokemonsDetail(name);
-
-
-
   })
 
 

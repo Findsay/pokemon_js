@@ -117,6 +117,15 @@ function getAllPokemonFromStorage(){
   return JSON.parse(jsonString);
 }
 
+function hideButton(button){
+  button.style.display = 'none';
+};
+
+function showButton(button){
+  button.style.display = 'inline';
+};
+
+
 var app = function(){
 
 
@@ -131,8 +140,23 @@ var app = function(){
     loadAPokemonsDetail(name);
 
 
+
   })
 
+
+  var btnViewAll = document.getElementById('btn-view-all');
+  var btnViewEncountered = document.getElementById('btn-view-encountered');
+  var btnViewCaught = document.getElementById('btn-view-caught');
+  var btnPlay = document.getElementById('btn-play');
+
+  btnViewAll.addEventListener('click', function(){
+    hideButton(btnViewAll);
+    hideButton(btnViewEncountered);
+    hideButton(btnViewCaught);
+    hideButton(btnPlay);
+    mainSelect.style.display = 'inline';
+
+  })
 
 
 

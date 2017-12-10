@@ -4,19 +4,31 @@ color: #2f4f4f;
 }
 
 main{
-  width: 300px;
-  margin: 0 auto;
+
 }
 
 input{
   padding: 10px;
   border-radius: 5px;
   width: 400px;
-  font-size: 22px;
   margin: 10px;
 }
 
 body{
   background-image: url("https://pre00.deviantart.net/29a8/th/pre/f/2016/311/6/1/pokemon_twitch_theme_gif_by_masterq2-danm4kn.png");
   background-repeat:no-repeat;
+}
+
+select{
+  margin: 20px;
+  font-size: 22px;
+
+
+}
+
+#pokemonIdType{
+  background: #ffffcc;
+  width: 200px;
+  margin-left: 535px;
+  padding-left: 4px;
 }

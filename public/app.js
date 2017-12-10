@@ -69,9 +69,10 @@ function appendChild(parent, child){
 }
 
 function displayPokemon(pokemonDetails){
-  var pPokemonName = createNewParagraph(pokemonDetails.id);
+  var pPokemonId = createNewParagraph(pokemonDetails.id);
+  pPokemonId.id = "pokemon-id";
   var mainDiv = document.getElementById('pokemon');
-  appendChild(mainDiv, pPokemonName);
+  appendChild(mainDiv, pPokemonId);
 }
 
 function popualteSelect(pokemon){

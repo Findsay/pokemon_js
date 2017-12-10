@@ -52,6 +52,12 @@ function createDiv(){
   return newDiv;
 }
 
+function createImage(url){
+  var newImage = document.createElement('img');
+  newImage.src = url;
+  return newImage;
+}
+
 function createHeader(type, text){
   var newHeader = document.createElement(type);
   newHeader.innerText = text;
@@ -69,10 +75,20 @@ function appendChild(parent, child){
 }
 
 function displayPokemon(pokemonDetails){
+  var pPokemonImg = createImage(pokemonDetails.sprites.front_shiny);
+  appendChild(document.body, pPokemonImg);
+
   var pPokemonId = createNewParagraph(pokemonDetails.id);
-  pPokemonId.id = "pokemon-id";
-  var mainDiv = document.getElementById('pokemon');
-  appendChild(mainDiv, pPokemonId);
+  appendChild(document.body, pPokemonId);
+
+  var pPokemonType = createNewParagraph(pokemonDetails.types[0].type.name);
+  appendChild(document.body, pPokemonType);
+
+  var pPokemonHeight = createNewParagraph(pokemonDetails.height);
+  appendChild(document.body,pPokemonHeight);
+
+  var pPokemonWeight = createNewParagraph(pokemonDetails.weight);
+  appendChild(document.body, pPokemonWeight);
 }
 
 function popualteSelect(pokemon){
@@ -102,6 +118,7 @@ var app = function(){
   mainSelect.addEventListener('change', function(){
     var name = this.value
     loadAPokemonsDetail(name);
+
 
   })
 

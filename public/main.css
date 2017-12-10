@@ -1,6 +1,6 @@
 *{
-font-family: 'Exo', sans-serif;
-color: #2f4f4f;
+  font-family: 'Exo', sans-serif;
+  color: #2f4f4f;
 }
 
 main{
@@ -26,8 +26,30 @@ select{
 
 }
 
+img{
+  margin: 20px;
+  border:1px solid #021a40;
+  border-radius: 20px;
+  width:300px;
+  float: left;
+  clear:both;
+}
+
+p {
+  margin-left: 0px;
+  overflow:auto;
+  display:block;
+}
+
 #pokemonIdType{
   background: #ffffcc;
+  width: 200px;
+  margin-left: 535px;
+  padding-left: 4px;
+}
+
+#pokemonHeightWeight{
+  background: #ADD8E6;
   width: 200px;
   margin-left: 535px;
   padding-left: 4px;

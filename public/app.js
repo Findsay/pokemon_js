@@ -125,6 +125,7 @@ var app = function(){
   forEachPokemon(pokemon.results, popualteSelect);
 
   var mainSelect = document.getElementById('select-pokemon');
+  mainSelect.style.display = 'none';
   mainSelect.addEventListener('change', function(){
     var name = this.value
     loadAPokemonsDetail(name);

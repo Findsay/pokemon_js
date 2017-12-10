@@ -75,20 +75,23 @@ function appendChild(parent, child){
 }
 
 function displayPokemon(pokemonDetails){
+  clearPokemonInfo();
+  var mainDiv = document.getElementById('pokemon');
+
   var pPokemonImg = createImage(pokemonDetails.sprites.front_shiny);
-  appendChild(document.body, pPokemonImg);
+  appendChild(mainDiv, pPokemonImg);
 
-  var pPokemonId = createNewParagraph(pokemonDetails.id);
-  appendChild(document.body, pPokemonId);
+  var pPokemonId = createNewParagraph(`ID: ${pokemonDetails.id}`);
+  appendChild(mainDiv, pPokemonId);
 
-  var pPokemonType = createNewParagraph(pokemonDetails.types[0].type.name);
-  appendChild(document.body, pPokemonType);
+  var pPokemonType = createNewParagraph(`TYPE: ${pokemonDetails.types[0].type.name}`);
+  appendChild(mainDiv, pPokemonType);
 
-  var pPokemonHeight = createNewParagraph(pokemonDetails.height);
-  appendChild(document.body,pPokemonHeight);
+  var pPokemonHeight = createNewParagraph(`HEIGHT: ${pokemonDetails.height}`);
+  appendChild(mainDiv,pPokemonHeight);
 
-  var pPokemonWeight = createNewParagraph(pokemonDetails.weight);
-  appendChild(document.body, pPokemonWeight);
+  var pPokemonWeight = createNewParagraph(`WEIGHT: ${pokemonDetails.weight}`);
+  appendChild(mainDiv, pPokemonWeight);
 }
 
 function popualteSelect(pokemon){
@@ -100,6 +103,13 @@ function popualteSelect(pokemon){
 function saveAllPokemon(){
   var jsonString = JSON.stringify(pokemon);
   localStorage.setItem('allPokemon', jsonString);
+}
+
+function clearPokemonInfo(){
+  var mainDiv = document.getElementById('pokemon');
+  while (mainDiv.firstChild){
+    mainDiv.removeChild(mainDiv.firstChild);
+  }
 }
 
 function getAllPokemonFromStorage(){

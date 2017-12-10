@@ -41,6 +41,12 @@ p {
   display:block;
 }
 
+#play{
+  border: none;
+  width: 150px;
+  float:right;
+}
+
 #pokemonIdType{
   background: #ffffcc;
   width: 200px;

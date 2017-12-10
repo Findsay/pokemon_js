@@ -156,11 +156,12 @@ function displayWildPokemon(pokemonDetails){
   var btnCatch = document.createElement('button');
   btnCatch.innerText = "Throw Pokeball"
   appendChild(mainDiv, btnCatch);
-  btnCatch.addEventListener('click', function(){
+  btnCatch.addEventListener('click', function(pokeonDetails){
     debugger;
     var chance = returnCatchChance();
     debugger;
     if(checkIfCaught(chance)){
+      addToCaught(pokemonDetails);
       clearPokemonInfo();
       var pPokemonCaught = createNewParagraph(`Gotcha! ${pokemonDetails.name} was caught`);
       pPokemonCaught.id = "pokemonCaught";
@@ -197,9 +198,24 @@ function displayOutcome(pokemonDetails){
 //
 // };
 //
-// function addToCaught(){
-//
-// };
+function addToCaught(pokemonDetails){
+  var caughtPokemon = [];
+  var jsonString = localStorage.getItem('caughtPokemon');
+
+  if (jsonString !== null){
+    caughtPokemon = JSON.parse(jsonString);
+  }
+
+  var name = pokemonDetails.name;
+  debugger;
+  caughtPokemon.push(name);
+
+  var jsonString = JSON.stringify(caughtPokemon);
+  localStorage.setItem('caughtPokemon', jsonString);
+
+};
+
+
 
 
 var app = function(){

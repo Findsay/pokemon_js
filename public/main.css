@@ -41,12 +41,25 @@ p {
   display:block;
 }
 
+#pAppear{
+  margin: 25px;
+}
+
 button{
-  margin: 50px;
+  margin: 30px;
   width: 150px;
   height: 75px;
   display: block;
 }
+
+/*#btn-home{
+  width: 100px;
+  height: 30px;
+  display: block;
+  margin-left: 350px;
+  margin-top: 70px;
+
+}*/
 
 #play{
   border: none;
@@ -66,4 +79,9 @@ button{
   width: 200px;
   margin-left: 535px;
   padding-left: 4px;
+}
+
+#pokemonCaught{
+  margin: 100px;
+  font-size: 40px;
 }
